@@ -1,6 +1,6 @@
 from sqlmodel import select
 
-from app.user.user_models import User
+from app.user.user_models import User, UserCreate
 from app.utils.sqlite_db import get_session
 
 def get_all_users_controller():
@@ -11,10 +11,10 @@ def get_all_users_controller():
 def get_user_controller():
     return {"method": "get user"}
 
-def create_user_controller():
-    user: User = User(name="John", lastName="Doe", age=30)
+def create_user_controller(user: UserCreate):
     session = get_session() #necesito que me pases la conexion a la base de datos
-    session.add(user) #agrego el usuario
+    db_user = User(name=user.name, lastName=user.lastName, age=user.age)
+    session.add(db_user) #agrego el usuario
     session.commit() #hago el commit (haz la chamba)
-    session.refresh(user) #actualizo el usuario con el nuevo id
-    return user
+    session.refresh(db_user) #actualizo el usuario con el nuevo id
+    return db_user

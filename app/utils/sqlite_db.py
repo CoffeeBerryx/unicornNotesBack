@@ -1,3 +1,6 @@
+from typing import Annotated
+
+from fastapi import Depends
 from sqlmodel import create_engine, SQLModel, Session
 
 sqlite_file_name = "database.db"
@@ -11,4 +14,5 @@ def create_db_and_tables():
 
 def get_session():
     with Session(engine) as session:
-        return session
+        yield session
+
