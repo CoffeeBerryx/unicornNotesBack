@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.user.user_controller import get_user_controller
+from app.user.user_controller import get_user_controller, create_user_controller
 
 router = APIRouter(prefix="/user", tags=["User"])
 
@@ -14,7 +14,7 @@ async def update_user():
 
 @router.put("")
 async def new_user(user_id: int):
-    return [{"method": "put user"}]
+    return create_user_controller()
 
 @router.delete("")
 async def delete_user(user_id: int):
