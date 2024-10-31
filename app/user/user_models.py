@@ -7,6 +7,7 @@ class User(SQLModel, table=True):
     lastName: str = Field(index=True)
     age: int | None = Field(default=None, index=True)
 
+
 class UserCreate(SQLModel):
     name: str
     lastName: str
