@@ -238,3 +238,11 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 /database.db
+/.idea/.gitignore
+/.idea/dataSources.xml
+/.idea/fastApiProject.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/unicornNotesBack.iml
+/.idea/vcs.xml
